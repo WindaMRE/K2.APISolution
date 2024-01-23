@@ -11,8 +11,9 @@ namespace K2.WebAPI.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
+            //Response.Redirect("https://localhost:44332/swagger/ui/index");
             return View();
+
         }
     }
 }
