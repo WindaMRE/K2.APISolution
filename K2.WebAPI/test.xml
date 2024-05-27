@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <DMS7_DownloadDoc_BridgeResponse xmlns="http://tempuri.org/">
+      <DMS7_DownloadDoc_BridgeResult>
+        <FileName>WhatsApp Image 2023-06-21 at 11.09.39.jpeg</FileName>
+        <FileURL>https://ecm-uat-dms.eigerindo.co.id/DocufloAppWS/DownloadFileHandler.ashx?doc=tiwmko65+iITOvBemxkdbJJy66PCv95H+VBQ4BVGGMQJfCD9mR42NJdSQxNaLfcNY3FBxXj2bxRPbXUw9dkAdJZIQW9h5Q+w7YLP1gFBqkFuuZM+BSU87DM8TmcxJfFo8wUL/3o5Pif3PAgHLKbJfA==</FileURL>
+      </DMS7_DownloadDoc_BridgeResult>
+    </DMS7_DownloadDoc_BridgeResponse>
+  </soap:Body>
+</soap:Envelope>

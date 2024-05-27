@@ -13,68 +13,45 @@ namespace K2.WebAPI.Models
         { 
         }
 
-        public class Body
-        {
-            public string username { get; set; }
-            public string password { get; set; }
-            public string tenantid { get; set; }
-        }
-       
         public class Errors
         {
             public Boolean ProcessSuccess { get; set; }
             public string InfoMessage { get; set; }
         }
 
-        public class D
+        //public class D
+        //{
+        //    public List<GenerateSignatures> results { get; set; }
+        //}
+
+        public class GenerateSignatures
         {
-            public List<Result> results { get; set; }
+            public List<ResultGen> Results { get; set; }
+            public int Id { get; set; }
+            public string Exception { get; set; }
+            public string Status { get; set; }
+            public bool IsCanceled { get; set; }
+            public bool IsCompleted { get; set; }
+            public int CreationOptions { get; set; }
+            public string AsyncState { get; set; }
+            public bool IsFaulted { get; set; }
         }
 
-        public class Metadata
+        public class ResultGen
         {
-            public string id { get; set; }
-            public string uri { get; set; }
-            public string type { get; set; }
+            public string Status { get; set; }
+            public string Message { get; set; }
         }
-        public class metadata2
-        {
-            public List<string> id { get; set; }
-            public List<string> uri { get; set; }
-            public List<string> types { get; set; }
-        }
-        //public class Mid
+        //public partial class Root 
         //{
-        //    public string id { get; set; }
+        //    public D d { get; set; }
         //}
-        //public class Muri
-        //{
-        //    public string uri { get; set; }
-        //}
-        //public class Mtype
-        //{
-        //    public string type { get; set; }
-        //}
-        //public class metadata2
-        //{
-        //    public string Content { get; set; }
-        //}
-        public class Result
-        {
-            public Metadata __metadata { get; set; }
-            public string store_code { get; set; }
-            public StoreToDNNav StoreToDNNav { get; set; }
-            public string dn_number { get; set; }
-        }
 
-        public partial class Root 
+        public class ProfileFieldDMS
         {
-            public D d { get; set; }
-        }
-
-        public class StoreToDNNav
-        {
-            public List<Result> results { get; set; }
+            public string FieldName { get; set; }
+            public string Descriptions { get; set; }
+            public string Values { get; set; }
         }
     }
 }

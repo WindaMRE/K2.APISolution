@@ -12,40 +12,12 @@ namespace K2.WebAPI.Service
     {
         public static HttpResponseMessage Response(this HttpRequestMessage request, ApiStatus statusCode, object dataValue, string msg)
         {
-
-            //var e = new ApiStatus(500);
-
-            //var _a = new
-            //{
-            //    status = e.StatusCode,
-            //    error = true,
-            //    detail = "",
-            //    message = e.StatusDescription,
-            //    data = dataValue
-
-            //};
-
             HttpStatusCode stcd = (HttpStatusCode)statusCode.StatusCode;
             if (statusCode.StatusCode != 200)
             {
-
-
             }
             else
             {
-                //_a = new
-                //{
-                //    status = statusCode.StatusCode,
-                //    error = false,
-                //    detail = msg,
-                //    message = statusCode.StatusDescription,
-                //    data = dataValue
-
-                //};
-                //return new HttpResponseMessage(HttpStatusCode.OK)
-                //{
-                //    Content = new ObjectContent(null, _a, new JsonMediaTypeFormatter())
-                //};
 
             }
             return request.CreateResponse(stcd, dataValue);

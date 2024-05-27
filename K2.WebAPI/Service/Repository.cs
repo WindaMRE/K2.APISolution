@@ -6,30 +6,29 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace K2.WebAPI.Service
 {
     public partial class Repository
     {
         private string ConStr;
-        public Repository() {
-            ConStr = ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString ();
+        public Repository()
+        {
+            ConStr = ConfigurationManager.ConnectionStrings["ApplicationServices"].ToString();
         }
-        public async Task<(List<T> List, string ErrorMsg)> DynamicParamQueryAsync<T>(string query, DynamicParameters param = null, IDbTransaction Dbtransact = null,
+        public (List<T> List, string ErrorMsg) DynamicParamQuery<T>(string query, DynamicParameters param = null, IDbTransaction Dbtransact = null,
               bool isStoredProcedure = true, CommandType CmdType = CommandType.StoredProcedure)
         {
             var connection = new SqlConnection(ConStr);
             try
             {
-                if (connection.State == ConnectionState.Open)
-                { }
-                else
+                if (connection.State != ConnectionState.Open)
                 {
                     connection.Open();
                 }
-                var _a = await connection.QueryAsync<T>(query, param, null, 1800, isStoredProcedure ? CommandType.StoredProcedure : CommandType.Text);
-                return (_a.ToList(), string.Empty);
+                var _a = connection.QueryAsync<T>(query, param, null, 130
+                    , isStoredProcedure ? CommandType.StoredProcedure : CommandType.Text).ConfigureAwait(true).GetAwaiter().GetResult().ToList();
+                return (_a, string.Empty);
             }
             catch (Exception ex)
             {

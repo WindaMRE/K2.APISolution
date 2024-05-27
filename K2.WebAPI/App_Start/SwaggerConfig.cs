@@ -25,11 +25,12 @@ namespace K2.WebAPI
                     {
                         
                         c.SingleApiVersion("v1", "K2.WebAPI");
-                        //c.AccessControlAllowOrigin("*");
-                        c.IncludeXmlComments(string.Format(@"{0}\bin\SwaggerK2.WebAPI.XML", System.AppDomain.CurrentDomain.BaseDirectory));/*IncludeAllXmlComments(thisAssembly, AppDomain.CurrentDomain.BaseDirectory);*/
-                        //c.IgnoreIsSpecifiedMembers();
-                        //c.DescribeAllEnumsAsStrings();                        //c.DescribeAllEnumsAsStrings(camelCase: false);
-
+                        c.AccessControlAllowOrigin("*");
+                       /* c.IncludeXmlComments(string.Format(@"{0}\bin\SwaggerK2.WebAPI.XML", System.AppDomain.CurrentDomain.BaseDirectory));*/ 
+                        c.IncludeAllXmlComments(thisAssembly, AppDomain.CurrentDomain.BaseDirectory);
+                        c.IgnoreIsSpecifiedMembers();
+                        c.DescribeAllEnumsAsStrings();                        //c.DescribeAllEnumsAsStrings(camelCase: false);
+                        c.BasicAuth("basic").Description("AHcAaQBuAGQAYQAuAG0AYQB5AGEAcwBhAHIAaQBAAHMAbwBsAHUAdABpAGYALgBjAG8ALgBpAGQADQAKAFcAaQBuAGQAYQBNAFI=");
 
                     })
                 .EnableSwaggerUi(c =>

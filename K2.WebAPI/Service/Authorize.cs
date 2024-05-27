@@ -55,44 +55,44 @@ namespace K2.WebAPI.Service
             }
             return sb.ToString();
         }
-        public static bool GetAuthorize(string username, string passwordParam)
-        {
-            Repository test = new Repository();
-            DynamicParameters Dparam = new();
-            try
-            {
-                Dparam.Add("@Username", username);
-                var data = test.DynamicParamQueryAsync<Users>(@"sp_tbl_AuthenticAPI_CheckUser_Getrows", Dparam, null, true);
+        //public static bool GetAuthorize(string username, string passwordParam)
+        //{
+        //    Repository test = new Repository();
+        //    DynamicParameters Dparam = new();
+        //    try
+        //    {
+        //        Dparam.Add("@Username", username);
+        //        var data = test.DynamicParamQueryAsync<Users>(@"sp_tbl_AuthenticAPI_CheckUser_Getrows", Dparam, null, true);
 
-                if (data.Result.List.Count > 0)
-                {
-                    var passwordCrypt = Md5(data.Result.List[0].Password).ToString();
-                    if (passwordParam == passwordCrypt)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //        if (data.Result.List.Count > 0)
+        //        {
+        //            var passwordCrypt = Md5(data.Result.List[0].Password).ToString();
+        //            if (passwordParam == passwordCrypt)
+        //            {
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
-        public static bool Validate(string vldprm1, string vldprm2, string vldprm3, string RoleCode)
-        {
-            if (GetAuthorize(vldprm1, vldprm2) && vldprm3 == Token(vldprm1, vldprm2))
-                return true;
-            else
-                return false;
-        }
+        //public static bool Validate(string vldprm1, string vldprm2, string vldprm3, string RoleCode)
+        //{
+        //    if (GetAuthorize(vldprm1, vldprm2) && vldprm3 == Token(vldprm1, vldprm2))
+        //        return true;
+        //    else
+        //        return false;
+        //}
     }
 }
